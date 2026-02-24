@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/pg": "^8.16.0",
     "prettier": "^3.7.4",
-    "prisma": "^7.4.1",
+    "prisma": "^7.4.0",
     "turbo": "^2.8.10",
     "typescript": "5.9.2"
   },
@@ -24,8 +24,8 @@
     "packages/*"
   ],
   "dependencies": {
-    "@prisma/adapter-pg": "^7.4.1",
-    "@prisma/client": "^7.4.1",
+    "@prisma/adapter-pg": "^7.4.0",
+    "@prisma/client": "^7.4.0",
     "pg": "^8.18.0"
   }
 }
