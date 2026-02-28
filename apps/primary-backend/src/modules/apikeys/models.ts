@@ -43,6 +43,11 @@ export namespace ApiKeyModel {
             disabled: t.Boolean()
         }))
     })
+    export const getApiKeyByIdResponseFailedSchema = t.Object({
+        message: t.String("Api key not found")
+    })
+    
+    export type getApiKeyByIdResponseFailedSchema = typeof getApiKeyByIdResponseFailedSchema.static;
 
     export type getApiKeysResponseSchema = typeof getApiKeysResponseSchema.static;
 
@@ -58,5 +63,19 @@ export namespace ApiKeyModel {
 
     export type deleteApiKeyResponseFailedSchema = typeof deleteApiKeyResponseFailedSchema.static;
 
+    
+    export const getApiKeysResponsebyIdSchema = t.Object({
+        apiKeys: t.Object({
+            id: t.String(),
+            apiKey: t.String(),
+            name: t.String(),
+            credisConsumed: t.Number(),
+            lastUsed: t.Nullable(t.Date()),
+            disabled: t.Boolean()
+        })
+
+    })
+    export type getApiKeysResponsebyIdSchema = typeof getApiKeysResponsebyIdSchema.static;
+    
 
 }

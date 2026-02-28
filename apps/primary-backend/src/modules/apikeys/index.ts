@@ -47,6 +47,23 @@ export const app = new Elysia({ prefix: "api-keys" })
             200: ApiKeyModel.getApiKeysResponseSchema
         }
     })
+    .get("/:id", async ({ params: { id }, userId, status }) => {
+        const apiKey = await ApiKeyService.getApiKeyById(Number(id), Number(userId));
+        if(apiKey == null) {
+            return status(404,{
+                message: "Api key not found"
+            })
+        }
+        return {
+            apiKeys:apiKey
+        }
+    },{
+        response:{
+            200: ApiKeyModel.getApiKeysResponsebyIdSchema,
+            404: ApiKeyModel.getApiKeyByIdResponseFailedSchema
+        }
+
+    })
     .put("/", ({ body, userId, status }) => {
         try {
             ApiKeyService.updateApiKeyDisabled(Number(body.id), Number(userId), body.disabled);
