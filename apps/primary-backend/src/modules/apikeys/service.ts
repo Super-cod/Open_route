@@ -50,6 +50,25 @@ export abstract class ApiKeyService {
             disabled: apiKey.disabled
         }))
     }
+    static async getApiKeyById(id: number, userId: number) {
+        const apiKey = await prisma.apiKey.findFirst({
+            where: {
+                userId: userId,
+                deleted: false,
+                id: id
+            }
+        })
+            
+        return apiKey ? {
+            id: apiKey.id.toString(),
+            apiKey: apiKey.apiKey,
+            name: apiKey.name,
+            credisConsumed: apiKey.creditsConsumed,
+            lastUsed: apiKey.lastUsed,
+            disabled: apiKey.disabled
+        } : null;
+    }
+
 
     static async updateApiKeyDisabled(apiKeyId: number, userId: number, disabled: boolean) {
         await prisma.apiKey.update({
