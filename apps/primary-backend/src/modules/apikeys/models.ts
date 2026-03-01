@@ -44,7 +44,7 @@ export namespace ApiKeyModel {
         }))
     })
     export const getApiKeyByIdResponseFailedSchema = t.Object({
-        message: t.String("Api key not found")
+        message: t.Literal("Api key not found")
     })
     
     export type getApiKeyByIdResponseFailedSchema = typeof getApiKeyByIdResponseFailedSchema.static;

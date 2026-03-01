@@ -1,8 +1,9 @@
 import { Elysia } from "elysia";
 import { app as authApp }  from "./modules/auth/index";
 import { app as apiKeysApp } from "./modules/apikeys/index";
-
-const app = new Elysia().use(authApp).use(apiKeysApp).listen(3000);
+import { app as modelsApp } from "./modules/models/index";
+import { app as paymentsApp } from "./modules/paymets/index";
+const app = new Elysia().use(authApp).use(apiKeysApp).use(modelsApp).use(paymentsApp).listen(3000);
 
 console.log(
   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
