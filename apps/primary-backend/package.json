@@ -1,6 +1,11 @@
 {
   "name": "primary-backend",
   "version": "1.0.50",
+  "type": "module",
+  "main": "./src/app.ts",
+  "exports": {
+    ".": "./src/app.ts"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts"
